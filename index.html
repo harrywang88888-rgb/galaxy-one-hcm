@@ -150,217 +150,191 @@
     <main class="flex-1 min-w-0">
 
       <!-- ======== 页面：工作台 ======== -->
-      <section id="page-dashboard" class="page p-6 space-y-5">
+      <section id="page-dashboard" class="page p-6 space-y-6">
 
         <!-- 欢迎语 -->
-        <div class="flex items-end justify-between flex-wrap gap-3">
-          <div>
-            <h2 class="text-xl font-semibold text-gray-900">早上好，思远</h2>
-            <p class="mt-1 text-[13px] text-gray-500">
-              您今天有 <span class="text-brand-600 font-medium">3 项跨国发薪审批</span>，<span class="text-brand-600 font-medium">2 份人才盘点报告</span> 待查看。
-              <span class="text-gray-300 mx-1.5">|</span>2026年11月17日 星期二
-            </p>
-          </div>
-          <div class="flex gap-2.5">
-            <button class="h-9 px-4 rounded-md border border-gray-200 bg-white text-[13px] text-gray-700 hover:bg-gray-50">导出周报表</button>
-          </div>
+        <div>
+          <h2 class="text-xl font-semibold text-gray-900">早上好，思远</h2>
+          <p class="mt-1 text-[13px] text-gray-500">
+            今天有 <button data-scroll="dash-todos" class="text-brand-600 font-medium hover:underline">5 项待办</button>、<button data-scroll="dash-mails" class="text-brand-600 font-medium hover:underline">3 封未读邮件</button>。
+            <span class="text-gray-300 mx-1.5">|</span>2026年11月24日 星期二
+          </p>
         </div>
 
-        <!-- 核心指标卡片 -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
+        <div class="grid grid-cols-1 xl:grid-cols-3 gap-4 items-start">
 
-          <!-- 卡1：发薪进度 -->
-          <div class="bg-white rounded-xl border border-gray-100 shadow-sm p-5">
-            <div class="flex items-center justify-between">
-              <span class="text-[13px] text-gray-500">本月全球发薪进度</span>
-              <span class="text-[11px] px-1.5 py-0.5 rounded bg-brand-50 text-brand-600">11月批次</span>
+          <!-- 九宫格：工作区导航 -->
+          <section class="xl:col-span-2 bg-white rounded-xl border border-gray-100 shadow-sm p-5">
+            <div class="flex items-center justify-between mb-4">
+              <h3 class="text-[15px] font-semibold text-gray-900">工作区导航</h3>
+              <span class="text-[12px] text-gray-400">点击进入对应模块</span>
             </div>
-            <div class="mt-3 flex items-baseline gap-1">
-              <span class="text-2xl font-semibold text-gray-900">82</span>
-              <span class="text-sm text-gray-400">%</span>
-            </div>
-            <div class="mt-3 h-2 rounded-full bg-gray-100 overflow-hidden">
-              <div class="h-full w-[82%] rounded-full bg-brand-500"></div>
-            </div>
-            <div class="mt-2.5 text-[12px] text-gray-400">已覆盖 <span class="text-gray-600">23 / 28</span> 个国家主体</div>
-          </div>
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
 
-          <!-- 卡2：出海员工 -->
-          <div class="bg-white rounded-xl border border-gray-100 shadow-sm p-5">
-            <div class="flex items-center justify-between">
-              <span class="text-[13px] text-gray-500">出海员工总数</span>
-              <span class="text-[12px] text-success font-medium">↑ 6.2% YoY</span>
-            </div>
-            <div class="mt-3 flex items-baseline gap-1.5">
-              <span class="text-2xl font-semibold text-gray-900">12,847</span>
-              <span class="text-sm text-gray-400">人</span>
-            </div>
-            <div id="chart-spark" class="mt-1 h-11 -mx-1"></div>
-            <div class="text-[12px] text-gray-400">覆盖 28 个国家 · 近 12 个月趋势</div>
-          </div>
+              <button data-nav-to="#/org" class="group rounded-lg border border-gray-100 p-4 text-left hover:border-brand-200 hover:bg-brand-50/40 transition-colors">
+                <span class="w-9 h-9 rounded-lg bg-brand-50 text-brand-600 flex items-center justify-center">
+                  <svg class="w-[18px] h-[18px]" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z"/></svg>
+                </span>
+                <div class="mt-2.5 text-[13px] font-medium text-gray-800 group-hover:text-brand-700">组织与员工</div>
+                <div class="mt-0.5 text-[11px] text-gray-400">12,847 人在册</div>
+              </button>
 
-          <!-- 卡3：人才流失预警 -->
-          <div class="bg-white rounded-xl border border-red-200 shadow-sm p-5">
-            <div class="flex items-center justify-between">
-              <span class="text-[13px] text-gray-500">关键人才流失预警</span>
-              <span class="text-[11px] px-1.5 py-0.5 rounded bg-red-50 text-danger font-medium">高风险</span>
-            </div>
-            <div class="mt-3 flex items-baseline gap-1.5">
-              <span class="text-2xl font-semibold text-danger">7</span>
-              <span class="text-sm text-gray-400">人</span>
-              <span class="ml-1 text-[12px] text-danger">较上月 +2</span>
-            </div>
-            <div class="mt-3 rounded-md bg-red-50 px-3 py-2 text-[12px] text-red-700 leading-relaxed">
-              含 2 名 M4+ 关键岗位继任者，建议 48h 内介入面谈
-            </div>
-          </div>
+              <button data-nav-to="#/payroll" class="group rounded-lg border border-gray-100 p-4 text-left hover:border-brand-200 hover:bg-brand-50/40 transition-colors">
+                <span class="w-9 h-9 rounded-lg bg-brand-50 text-brand-600 flex items-center justify-center">
+                  <svg class="w-[18px] h-[18px]" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                </span>
+                <div class="mt-2.5 text-[13px] font-medium text-gray-800 group-hover:text-brand-700">全球薪酬</div>
+                <div class="mt-0.5 text-[11px] text-gray-400">42 国发薪与合规</div>
+              </button>
 
-          <!-- 卡4：合规异常 -->
-          <div class="bg-white rounded-xl border border-gray-100 shadow-sm p-5">
-            <div class="flex items-center justify-between">
-              <span class="text-[13px] text-gray-500">全球合规异常事件</span>
-              <span class="text-[11px] px-1.5 py-0.5 rounded bg-orange-50 text-warning font-medium">需处理</span>
+              <button data-nav-to="#/hiring" class="group rounded-lg border border-gray-100 p-4 text-left hover:border-brand-200 hover:bg-brand-50/40 transition-colors">
+                <span class="w-9 h-9 rounded-lg bg-brand-50 text-brand-600 flex items-center justify-center">
+                  <svg class="w-[18px] h-[18px]" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 00.75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 00-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0112 15.75c-2.648 0-5.195-.429-7.577-1.22a2.016 2.016 0 01-.673-.38m0 0A2.18 2.18 0 013 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 013.413-.387m7.5 0V5.25A2.25 2.25 0 0013.5 3h-3a2.25 2.25 0 00-2.25 2.25v.894m7.5 0a48.667 48.667 0 00-7.5 0"/></svg>
+                </span>
+                <div class="mt-2.5 text-[13px] font-medium text-gray-800 group-hover:text-brand-700">招聘管理</div>
+                <div class="mt-0.5 text-[11px] text-gray-400">86 个在招职位</div>
+              </button>
+
+              <button data-nav-to="#/performance" class="group rounded-lg border border-gray-100 p-4 text-left hover:border-brand-200 hover:bg-brand-50/40 transition-colors">
+                <span class="w-9 h-9 rounded-lg bg-brand-50 text-brand-600 flex items-center justify-center">
+                  <svg class="w-[18px] h-[18px]" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z"/></svg>
+                </span>
+                <div class="mt-2.5 text-[13px] font-medium text-gray-800 group-hover:text-brand-700">绩效与发展</div>
+                <div class="mt-0.5 text-[11px] text-gray-400">上级评估进行中</div>
+              </button>
+
+              <button data-nav-to="#/kernex" class="group rounded-lg border border-gray-100 p-4 text-left hover:border-brand-200 hover:bg-brand-50/40 transition-colors">
+                <span class="w-9 h-9 rounded-lg bg-brand-500 text-white flex items-center justify-center">
+                  <svg class="w-[18px] h-[18px]" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l1.9 6.1L20 10l-6.1 1.9L12 18l-1.9-6.1L4 10l6.1-1.9L12 2z"/><path d="M18.5 15.5l.9 2.6 2.6.9-2.6.9-.9 2.6-.9-2.6-2.6-.9 2.6-.9.9-2.6z"/></svg>
+                </span>
+                <div class="mt-2.5 text-[13px] font-medium text-gray-800 group-hover:text-brand-700">KerNeX 诊断</div>
+                <div class="mt-0.5 text-[11px] text-gray-400">组织健康度 86 分</div>
+              </button>
+
+              <button data-nav-to="#/agents" class="group rounded-lg border border-gray-100 p-4 text-left hover:border-brand-200 hover:bg-brand-50/40 transition-colors">
+                <span class="w-9 h-9 rounded-lg bg-brand-50 text-brand-600 flex items-center justify-center">
+                  <svg class="w-[18px] h-[18px]" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 3v1.5M4.5 8.25H3m18 0h-1.5M4.5 12H3m18 0h-1.5m-15 3.75H3m18 0h-1.5M8.25 19.5V21M12 3v1.5m0 15V21m3.75-18v1.5m0 15V21m-9-1.5h10.5a2.25 2.25 0 002.25-2.25V6.75a2.25 2.25 0 00-2.25-2.25H6.75A2.25 2.25 0 004.5 6.75v10.5a2.25 2.25 0 002.25 2.25zm.75-12h9v9h-9v-9z"/></svg>
+                </span>
+                <div class="mt-2.5 text-[13px] font-medium text-gray-800 group-hover:text-brand-700">智能体中心</div>
+                <div class="mt-0.5 text-[11px] text-gray-400">8 个智能体运行中</div>
+              </button>
+
+              <button data-scroll="dash-todos" class="group rounded-lg border border-gray-100 p-4 text-left hover:border-brand-200 hover:bg-brand-50/40 transition-colors">
+                <span class="w-9 h-9 rounded-lg bg-brand-50 text-brand-600 flex items-center justify-center">
+                  <svg class="w-[18px] h-[18px]" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                </span>
+                <div class="mt-2.5 text-[13px] font-medium text-gray-800 group-hover:text-brand-700">待办审批</div>
+                <div class="mt-0.5 text-[11px] text-gray-400">5 项待处理</div>
+              </button>
+
+              <button data-scroll="dash-mails" class="group rounded-lg border border-gray-100 p-4 text-left hover:border-brand-200 hover:bg-brand-50/40 transition-colors">
+                <span class="w-9 h-9 rounded-lg bg-brand-50 text-brand-600 flex items-center justify-center">
+                  <svg class="w-[18px] h-[18px]" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/></svg>
+                </span>
+                <div class="mt-2.5 text-[13px] font-medium text-gray-800 group-hover:text-brand-700">未读邮件</div>
+                <div class="mt-0.5 text-[11px] text-gray-400">3 封未读</div>
+              </button>
+
+              <div class="rounded-lg border border-dashed border-gray-200 p-4 text-left">
+                <span class="w-9 h-9 rounded-lg bg-gray-50 text-gray-400 flex items-center justify-center">
+                  <svg class="w-[18px] h-[18px]" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.324.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 011.37.49l1.296 2.247a1.125 1.125 0 01-.26 1.431l-1.003.827c-.293.24-.438.613-.431.992a6.759 6.759 0 010 .255c-.007.378.138.75.43.99l1.005.828c.424.35.534.954.26 1.43l-1.298 2.247a1.125 1.125 0 01-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.57 6.57 0 01-.22.128c-.331.183-.581.495-.644.869l-.213 1.28c-.09.543-.56.941-1.11.941h-2.594c-.55 0-1.02-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 01-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 01-1.369-.49l-1.297-2.247a1.125 1.125 0 01.26-1.431l1.004-.827c.292-.24.437-.613.43-.992a6.932 6.932 0 010-.255c.007-.378-.138-.75-.43-.99l-1.004-.828a1.125 1.125 0 01-.26-1.43l1.297-2.247a1.125 1.125 0 011.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.087.22-.128.332-.183.582-.495.644-.869l.214-1.281z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                </span>
+                <div class="mt-2.5 text-[13px] font-medium text-gray-400">系统设置</div>
+                <div class="mt-0.5 text-[11px] text-gray-300">即将上线</div>
+              </div>
             </div>
-            <div class="mt-3 flex items-baseline gap-1.5">
-              <span class="text-2xl font-semibold text-warning">3</span>
-              <span class="text-sm text-gray-400">起</span>
+          </section>
+
+          <!-- 待办事项 -->
+          <section id="dash-todos" class="bg-white rounded-xl border border-gray-100 shadow-sm scroll-mt-20">
+            <div class="flex items-center justify-between px-5 pt-4 pb-3 border-b border-gray-100">
+              <h3 class="text-[15px] font-semibold text-gray-900">待办事项 <span class="text-[12px] text-gray-400 font-normal">· 5 项</span></h3>
+              <button class="text-[12px] text-gray-400 hover:text-brand-600">全部待办 →</button>
             </div>
-            <ul class="mt-3 space-y-1.5 text-[12px] text-gray-500">
-              <li class="flex items-center gap-1.5"><span class="w-1 h-1 rounded-full bg-warning"></span>德国 · 个税申报口径差异</li>
-              <li class="flex items-center gap-1.5"><span class="w-1 h-1 rounded-full bg-warning"></span>巴西 · 社保基数超阈值</li>
-              <li class="flex items-center gap-1.5"><span class="w-1 h-1 rounded-full bg-warning"></span>印度 · 签证状态临期</li>
+            <ul class="divide-y divide-gray-100">
+              <li class="px-5 py-3.5 hover:bg-gray-50 cursor-pointer" data-nav-to="#/payroll">
+                <div class="flex items-center gap-2">
+                  <span class="text-[11px] px-1.5 py-0.5 rounded bg-orange-50 text-warning shrink-0">发薪审批</span>
+                  <span class="ml-auto text-[11px] text-gray-400 shrink-0">截止今日 18:00</span>
+                </div>
+                <div class="mt-1.5 text-[13px] text-gray-700 leading-snug">德国分公司 11 月发薪批次复核（个税口径差异 2 处）</div>
+              </li>
+              <li class="px-5 py-3.5 hover:bg-gray-50 cursor-pointer" data-nav-to="#/performance">
+                <div class="flex items-center gap-2">
+                  <span class="text-[11px] px-1.5 py-0.5 rounded bg-green-50 text-success shrink-0">人才盘点</span>
+                  <span class="ml-auto text-[11px] text-gray-400 shrink-0">明天 12:00 前</span>
+                </div>
+                <div class="mt-1.5 text-[13px] text-gray-700 leading-snug">2026 H2 亚太区管理层盘点报告待审阅（KerNeX 测评中心已出具）</div>
+              </li>
+              <li class="px-5 py-3.5 hover:bg-gray-50 cursor-pointer" data-nav-to="#/hiring">
+                <div class="flex items-center gap-2">
+                  <span class="text-[11px] px-1.5 py-0.5 rounded bg-brand-50 text-brand-600 shrink-0">面试安排</span>
+                  <span class="ml-auto text-[11px] text-gray-400 shrink-0">今天 14:00</span>
+                </div>
+                <div class="mt-1.5 text-[13px] text-gray-700 leading-snug">苏漫妮（HRBP）二面，会议室 B3-207</div>
+              </li>
+              <li class="px-5 py-3.5 hover:bg-gray-50 cursor-pointer" data-nav-to="#/hiring">
+                <div class="flex items-center gap-2">
+                  <span class="text-[11px] px-1.5 py-0.5 rounded bg-brand-50 text-brand-600 shrink-0">Offer 跟进</span>
+                  <span class="ml-auto text-[11px] text-gray-400 shrink-0">11-26 前</span>
+                </div>
+                <div class="mt-1.5 text-[13px] text-gray-700 leading-snug">赵启铭（财务总监）Offer 已发出 3 天，待回复</div>
+              </li>
+              <li class="px-5 py-3.5 hover:bg-gray-50 cursor-pointer" data-nav-to="#/org">
+                <div class="flex items-center gap-2">
+                  <span class="text-[11px] px-1.5 py-0.5 rounded bg-orange-50 text-warning shrink-0">用工合规</span>
+                  <span class="ml-auto text-[11px] text-gray-400 shrink-0">11-26 前</span>
+                </div>
+                <div class="mt-1.5 text-[13px] text-gray-700 leading-snug">越南新设主体用工合同模板备案（EOR 转自营过渡）</div>
+              </li>
             </ul>
-          </div>
-        </div>
-
-        <!-- 核心业务模块 -->
-        <div class="grid grid-cols-1 xl:grid-cols-5 gap-4">
-
-          <!-- 左栏：全球薪酬引擎 -->
-          <section class="xl:col-span-3 bg-white rounded-xl border border-gray-100 shadow-sm">
-            <div class="flex items-center justify-between px-5 pt-4 pb-3 border-b border-gray-100">
-              <div class="flex items-center gap-2.5">
-                <h3 class="text-[15px] font-semibold text-gray-900">跨境发薪与合规监控</h3>
-                <span class="text-[11px] px-1.5 py-0.5 rounded bg-brand-50 text-brand-600 font-medium">Galaxy One · 全球薪酬引擎</span>
-              </div>
-              <a href="#/payroll" class="text-[12px] text-gray-400 hover:text-brand-600">查看全部批次 →</a>
-            </div>
-
-            <!-- 发薪批次表 -->
-            <table class="w-full text-[13px]">
-              <thead>
-                <tr class="text-left text-[12px] text-gray-400 border-b border-gray-100">
-                  <th class="font-medium px-5 py-2.5">国家 / 主体</th>
-                  <th class="font-medium py-2.5">发薪批次</th>
-                  <th class="font-medium py-2.5">结算金额</th>
-                  <th class="font-medium py-2.5">发薪日</th>
-                  <th class="font-medium py-2.5 pr-5 text-right">状态</th>
-                </tr>
-              </thead>
-              <tbody class="divide-y divide-gray-100">
-                <tr class="hover:bg-gray-50">
-                  <td class="px-5 py-3"><span class="font-medium text-gray-800">新加坡分公司</span> <span class="text-gray-400 text-[12px]">SG · 486 人</span></td>
-                  <td class="py-3 text-gray-500 font-mono text-[12px]">PAY-2611-SG</td>
-                  <td class="py-3 text-gray-800">SGD 486,200.00</td>
-                  <td class="py-3 text-gray-500">11-15</td>
-                  <td class="py-3 pr-5 text-right"><span class="inline-flex items-center gap-1 text-[12px] px-2 py-0.5 rounded-full bg-green-50 text-success"><span class="w-1.5 h-1.5 rounded-full bg-success"></span>已完成</span></td>
-                </tr>
-                <tr class="hover:bg-gray-50 bg-orange-50/40">
-                  <td class="px-5 py-3"><span class="font-medium text-gray-800">德国分公司</span> <span class="text-gray-400 text-[12px]">DE · 312 人</span></td>
-                  <td class="py-3 text-gray-500 font-mono text-[12px]">PAY-2611-DE</td>
-                  <td class="py-3 text-gray-800">EUR 712,400.00</td>
-                  <td class="py-3 text-gray-500">11-18</td>
-                  <td class="py-3 pr-5 text-right"><span class="inline-flex items-center gap-1 text-[12px] px-2 py-0.5 rounded-full bg-orange-50 text-warning"><span class="w-1.5 h-1.5 rounded-full bg-warning"></span>需复核个税</span></td>
-                </tr>
-                <tr class="hover:bg-gray-50">
-                  <td class="px-5 py-3"><span class="font-medium text-gray-800">美国分公司</span> <span class="text-gray-400 text-[12px]">US · 1,024 人</span></td>
-                  <td class="py-3 text-gray-500 font-mono text-[12px]">PAY-2611-US</td>
-                  <td class="py-3 text-gray-800">USD 1,245,800.00</td>
-                  <td class="py-3 text-gray-500">11-20</td>
-                  <td class="py-3 pr-5 text-right"><span class="inline-flex items-center gap-1 text-[12px] px-2 py-0.5 rounded-full bg-brand-50 text-brand-600"><span class="w-1.5 h-1.5 rounded-full bg-brand-500"></span>处理中</span></td>
-                </tr>
-                <tr class="hover:bg-gray-50">
-                  <td class="px-5 py-3"><span class="font-medium text-gray-800">日本分公司</span> <span class="text-gray-400 text-[12px]">JP · 268 人</span></td>
-                  <td class="py-3 text-gray-500 font-mono text-[12px]">PAY-2611-JP</td>
-                  <td class="py-3 text-gray-800">JPY 98,340,000</td>
-                  <td class="py-3 text-gray-500">11-22</td>
-                  <td class="py-3 pr-5 text-right"><span class="inline-flex items-center gap-1 text-[12px] px-2 py-0.5 rounded-full bg-gray-100 text-gray-500"><span class="w-1.5 h-1.5 rounded-full bg-gray-400"></span>待审批</span></td>
-                </tr>
-                <tr class="hover:bg-gray-50">
-                  <td class="px-5 py-3"><span class="font-medium text-gray-800">英国分公司</span> <span class="text-gray-400 text-[12px]">UK · 195 人</span></td>
-                  <td class="py-3 text-gray-500 font-mono text-[12px]">PAY-2611-UK</td>
-                  <td class="py-3 text-gray-800">GBP 328,750.00</td>
-                  <td class="py-3 text-gray-500">11-14</td>
-                  <td class="py-3 pr-5 text-right"><span class="inline-flex items-center gap-1 text-[12px] px-2 py-0.5 rounded-full bg-green-50 text-success"><span class="w-1.5 h-1.5 rounded-full bg-success"></span>已完成</span></td>
-                </tr>
-              </tbody>
-            </table>
-
-            <!-- 多币种结算汇总 -->
-            <div class="border-t border-gray-100 px-5 py-4">
-              <div class="flex items-center justify-between mb-1">
-                <h4 class="text-[13px] font-medium text-gray-700">多币种结算汇总 <span class="text-gray-400 font-normal text-[12px]">· 本月已结算金额占比（折 USD）</span></h4>
-                <span class="text-[12px] text-gray-400">合计 ≈ USD 486.2 万</span>
-              </div>
-              <div id="chart-currency" class="h-52"></div>
-            </div>
-          </section>
-
-          <!-- 右栏：KerNeX 人才与组织智能 -->
-          <section class="xl:col-span-2 bg-white rounded-xl border border-gray-100 shadow-sm flex flex-col">
-            <div class="flex items-center justify-between px-5 pt-4 pb-3 border-b border-gray-100">
-              <div class="flex items-center gap-2.5">
-                <h3 class="text-[15px] font-semibold text-gray-900">人才九宫格</h3>
-                <span class="text-[11px] px-1.5 py-0.5 rounded bg-green-50 text-success font-medium">KerNeX · 人才与组织智能</span>
-              </div>
-              <a href="#/performance" class="text-[12px] text-gray-400 hover:text-brand-600">完整盘点报告 →</a>
-            </div>
-
-            <div class="px-2 pt-1">
-              <div id="chart-nine" class="h-[340px]"></div>
-            </div>
-
-            <div class="mt-auto border-t border-gray-100 px-5 py-3.5 grid grid-cols-3 divide-x divide-gray-100 text-center">
-              <div>
-                <div class="text-lg font-semibold text-gray-900">86</div>
-                <div class="text-[11px] text-gray-400 mt-0.5">高潜人才（人）</div>
-              </div>
-              <div>
-                <div class="text-lg font-semibold text-gray-900">78%</div>
-                <div class="text-[11px] text-gray-400 mt-0.5">关键岗位继任覆盖</div>
-              </div>
-              <div>
-                <div class="text-lg font-semibold text-success">A-</div>
-                <div class="text-[11px] text-gray-400 mt-0.5">组织健康度评级</div>
-              </div>
-            </div>
           </section>
         </div>
 
-        <!-- 底部：待办与审批 -->
-        <section class="bg-white rounded-xl border border-gray-100 shadow-sm">
+        <!-- 未读邮件 -->
+        <section id="dash-mails" class="bg-white rounded-xl border border-gray-100 shadow-sm scroll-mt-20">
           <div class="flex items-center justify-between px-5 pt-4 pb-3 border-b border-gray-100">
-            <h3 class="text-[15px] font-semibold text-gray-900">待办审批 <span class="text-[12px] text-gray-400 font-normal">· 5 项</span></h3>
-            <button class="text-[12px] text-gray-400 hover:text-brand-600">全部待办 →</button>
+            <h3 class="text-[15px] font-semibold text-gray-900">未读邮件 <span class="text-[12px] text-gray-400 font-normal">· 3 封</span></h3>
+            <button class="text-[12px] text-gray-400 hover:text-brand-600">查看全部邮件 →</button>
           </div>
-          <ul class="divide-y divide-gray-100 text-[13px]">
-            <li class="flex items-center gap-4 px-5 py-3 hover:bg-gray-50">
-              <span class="text-[11px] px-1.5 py-0.5 rounded bg-orange-50 text-warning shrink-0">发薪审批</span>
-              <span class="text-gray-700">德国分公司 11 月发薪批次复核（个税口径差异 2 处）</span>
-              <span class="ml-auto text-[12px] text-gray-400 shrink-0">截止今日 18:00</span>
-              <button class="shrink-0 h-7 px-3 rounded-md bg-brand-500 text-white text-[12px] hover:bg-brand-600">去处理</button>
+          <ul class="divide-y divide-gray-100">
+            <li class="flex items-start gap-3 px-5 py-3.5 hover:bg-gray-50 cursor-pointer">
+              <span class="w-8 h-8 rounded-full bg-amber-100 text-amber-700 flex items-center justify-center text-[12px] font-medium shrink-0">周</span>
+              <div class="flex-1 min-w-0">
+                <div class="flex items-center gap-2">
+                  <span class="text-[13px] font-medium text-gray-900">周慕云</span>
+                  <span class="w-1.5 h-1.5 rounded-full bg-brand-500 shrink-0"></span>
+                  <span class="ml-auto text-[11px] text-gray-400 shrink-0">10:24</span>
+                </div>
+                <div class="mt-0.5 text-[13px] text-gray-800">【待复核】GCN-2611 大中华区发薪批次个税口径差异</div>
+                <div class="mt-0.5 text-[12px] text-gray-400 truncate">附件为 2 处口径差异明细与回算结果，请于今日 18:00 前确认…</div>
+              </div>
             </li>
-            <li class="flex items-center gap-4 px-5 py-3 hover:bg-gray-50">
-              <span class="text-[11px] px-1.5 py-0.5 rounded bg-green-50 text-success shrink-0">人才盘点</span>
-              <span class="text-gray-700">2026 H2 亚太区管理层盘点报告（KerNeX 测评中心已出具）</span>
-              <span class="ml-auto text-[12px] text-gray-400 shrink-0">明天 12:00 前</span>
-              <button class="shrink-0 h-7 px-3 rounded-md border border-gray-200 text-gray-600 text-[12px] hover:bg-gray-100">查看</button>
+            <li class="flex items-start gap-3 px-5 py-3.5 hover:bg-gray-50 cursor-pointer">
+              <span class="w-8 h-8 rounded-full bg-orange-100 text-orange-700 flex items-center justify-center text-[12px] font-medium shrink-0">苏</span>
+              <div class="flex-1 min-w-0">
+                <div class="flex items-center gap-2">
+                  <span class="text-[13px] font-medium text-gray-900">苏漫妮</span>
+                  <span class="w-1.5 h-1.5 rounded-full bg-brand-500 shrink-0"></span>
+                  <span class="ml-auto text-[11px] text-gray-400 shrink-0">09:47</span>
+                </div>
+                <div class="mt-0.5 text-[13px] text-gray-800">2026 H2 亚太区管理层盘点报告已出具</div>
+                <div class="mt-0.5 text-[12px] text-gray-400 truncate">思远，亚太区管理层盘点报告已由 KerNeX 测评中心出具，请审阅后批复…</div>
+              </div>
             </li>
-            <li class="flex items-center gap-4 px-5 py-3 hover:bg-gray-50">
-              <span class="text-[11px] px-1.5 py-0.5 rounded bg-brand-50 text-brand-600 shrink-0">用工合规</span>
-              <span class="text-gray-700">越南新设主体用工合同模板备案（EOR 转自营过渡）</span>
-              <span class="ml-auto text-[12px] text-gray-400 shrink-0">11-21 前</span>
-              <button class="shrink-0 h-7 px-3 rounded-md border border-gray-200 text-gray-600 text-[12px] hover:bg-gray-100">查看</button>
+            <li class="flex items-start gap-3 px-5 py-3.5 hover:bg-gray-50 cursor-pointer">
+              <span class="w-8 h-8 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"/></svg>
+              </span>
+              <div class="flex-1 min-w-0">
+                <div class="flex items-center gap-2">
+                  <span class="text-[13px] font-medium text-gray-900">合规哨兵 <span class="text-[11px] text-gray-400 font-normal">系统通知</span></span>
+                  <span class="w-1.5 h-1.5 rounded-full bg-brand-500 shrink-0"></span>
+                  <span class="ml-auto text-[11px] text-gray-400 shrink-0">昨天 18:32</span>
+                </div>
+                <div class="mt-0.5 text-[13px] text-gray-800">巴西 INSS 申报口径更新，已生成差异报告</div>
+                <div class="mt-0.5 text-[12px] text-gray-400 truncate">需法务复核后生效，详情见「全球薪酬 · AI 合规哨兵」…</div>
+              </div>
             </li>
           </ul>
         </section>
@@ -1181,125 +1155,6 @@ const charts = {};
 const axisText = { color: '#9CA3AF', fontSize: 11 };
 
 const PAGE_INIT = {
-  dashboard() {
-    /* 出海员工趋势 sparkline */
-    charts.spark = echarts.init(document.getElementById('chart-spark'));
-    charts.spark.setOption({
-      grid: { left: 4, right: 4, top: 6, bottom: 2 },
-      xAxis: { type: 'category', show: false, boundaryGap: false,
-        data: ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月'] },
-      yAxis: { type: 'value', show: false, min: 11000 },
-      series: [{
-        type: 'line', smooth: true, symbol: 'none',
-        data: [11240, 11380, 11520, 11610, 11890, 12040, 12180, 12360, 12510, 12640, 12847],
-        lineStyle: { width: 1.8, color: '#6D5DF6' },
-        areaStyle: { color: new echarts.graphic.LinearGradient(0,0,0,1,[
-          { offset: 0, color: 'rgba(109,93,246,0.18)' }, { offset: 1, color: 'rgba(109,93,246,0)' }]) }
-      }],
-      tooltip: { trigger: 'axis', textStyle: { fontSize: 11 },
-        formatter: p => `${p[0].name}：${p[0].value.toLocaleString()} 人` }
-    });
-
-    /* 多币种结算汇总 饼图 */
-    charts.pie = echarts.init(document.getElementById('chart-currency'));
-    charts.pie.setOption({
-      color: ['#6D5DF6', '#16A34A', '#EA8600', '#64748B', '#B4A8F9', '#C9A254'],
-      tooltip: { trigger: 'item', textStyle: { fontSize: 11 },
-        formatter: '{b}<br/>占比 {d}% · ≈ USD {c} 万' },
-      legend: { right: 8, top: 'middle', orient: 'vertical', icon: 'circle',
-        itemWidth: 8, itemHeight: 8, itemGap: 12,
-        textStyle: { fontSize: 12, color: '#6B7280' } },
-      series: [{
-        type: 'pie', radius: ['52%', '74%'], center: ['32%', '50%'],
-        avoidLabelOverlap: true,
-        itemStyle: { borderColor: '#fff', borderWidth: 2 },
-        label: { show: false },
-        emphasis: { label: { show: true, fontSize: 12, fontWeight: 600, formatter: '{b}\n{d}%' }, scaleSize: 4 },
-        data: [
-          { value: 185.7, name: 'USD 美元' },
-          { value: 105.0, name: 'EUR 欧元' },
-          { value: 74.9,  name: 'CNY 人民币' },
-          { value: 57.4,  name: 'SGD 新币' },
-          { value: 37.0,  name: 'JPY 日元' },
-          { value: 26.2,  name: 'GBP 英镑' }
-        ]
-      }]
-    });
-
-    /* 人才九宫格（绩效 × 潜力） */
-    charts.nine = echarts.init(document.getElementById('chart-nine'));
-    const T = 10 / 3;
-    const cells = [
-      [0, T, 2*T, 10,  '潜力待观察', 'rgba(148,163,184,0.06)'],
-      [T, 2*T, 2*T, 10,'高潜人才',   'rgba(109,93,246,0.07)'],
-      [2*T, 10, 2*T, 10,'超级明星',  'rgba(22,163,74,0.08)'],
-      [0, T, T, 2*T,   '待改进',     'rgba(220,38,38,0.05)'],
-      [T, 2*T, T, 2*T, '中坚力量',   'rgba(100,116,139,0.05)'],
-      [2*T, 10, T, 2*T,'绩效之星',   'rgba(109,93,246,0.06)'],
-      [0, T, 0, T,     '重点关注',   'rgba(220,38,38,0.08)'],
-      [T, 2*T, 0, T,   '稳定贡献',   'rgba(148,163,184,0.05)'],
-      [2*T, 10, 0, T,  '经验骨干',   'rgba(234,134,0,0.06)']
-    ];
-    const talent = [
-      [8.9, 9.2, '陈晓峰', 'star'], [7.8, 8.4, 'L. Müller', 'star'],
-      [9.1, 7.6, '王芳', 'star'],   [7.2, 8.9, 'A. Tanaka', 'star'],
-      [8.4, 9.5, '林佳怡', 'star'],
-      [5.2, 8.1, 'M. Johnson', 'high'], [4.6, 7.4, '赵磊', 'high'],
-      [5.8, 8.8, 'S. Schmidt', 'high'], [4.2, 9.0, '孙萌', 'high'],
-      [8.8, 5.2, 'Kevin Wu', 'core'],   [7.4, 4.6, '周敏', 'core'],
-      [5.0, 5.0, '钱进', 'core'],       [4.0, 4.4, 'J. Smith', 'core'],
-      [6.0, 5.6, '吴倩', 'core'],       [5.4, 3.9, '郑凯', 'core'],
-      [2.4, 7.8, '顾远（见习）', 'risk'], [2.8, 2.4, 'E-2210', 'risk'],
-      [2.2, 4.6, 'E-1087', 'risk'],     [8.9, 1.8, 'R. Silva', 'core']
-    ];
-    const colorMap = { star: '#16A34A', high: '#6D5DF6', core: '#94A3B8', risk: '#DC2626' };
-
-    charts.nine.setOption({
-      grid: { left: 44, right: 16, top: 26, bottom: 34 },
-      tooltip: { textStyle: { fontSize: 11 },
-        formatter: p => `<b>${p.value[2]}</b><br/>绩效 ${p.value[0]} · 潜力 ${p.value[1]}` },
-      xAxis: {
-        name: '绩效 →', nameLocation: 'middle', nameGap: 24,
-        nameTextStyle: { color: '#6B7280', fontSize: 12 },
-        min: 0, max: 10, splitLine: { show: false },
-        axisLine: { lineStyle: { color: '#E5E7EB' } },
-        axisTick: { show: false }, axisLabel: axisText
-      },
-      yAxis: {
-        name: '潜力 →', nameLocation: 'middle', nameGap: 32,
-        nameTextStyle: { color: '#6B7280', fontSize: 12 },
-        min: 0, max: 10, splitLine: { show: false },
-        axisLine: { lineStyle: { color: '#E5E7EB' } },
-        axisTick: { show: false }, axisLabel: axisText
-      },
-      series: [{
-        type: 'scatter',
-        symbolSize: 11,
-        data: talent.map(d => ({
-          value: d,
-          itemStyle: { color: colorMap[d[3]], opacity: 0.9, borderColor: '#fff', borderWidth: 1 },
-          label: { show: d[3] === 'star', position: 'top', distance: 4,
-            formatter: d[2], fontSize: 10, color: '#475569' }
-        })),
-        emphasis: { scale: 1.5 },
-        markLine: {
-          silent: true, symbol: 'none',
-          lineStyle: { color: '#E5E7EB', width: 1 },
-          label: { show: false },
-          data: [{ xAxis: T }, { xAxis: 2 * T }, { yAxis: T }, { yAxis: 2 * T }]
-        },
-        markArea: {
-          silent: true,
-          data: cells.map(c => [{
-            xAxis: c[0], yAxis: c[2],
-            itemStyle: { color: c[5] },
-            label: { show: true, position: 'insideTopLeft', fontSize: 10, color: '#9CA3AF', padding: [4, 0, 0, 6], formatter: c[4] }
-          }, { xAxis: c[1], yAxis: c[3] }])
-        }
-      }]
-    });
-  },
-
   kernex() {
     /* 组织健康度仪表盘 */
     charts.health = echarts.init(document.getElementById('chart-health'));
@@ -1533,6 +1388,15 @@ document.getElementById('emp-tbody').addEventListener('click', e => {
   const emp = EMPLOYEES.find(x => x.id === row.dataset.emp);
   if (emp) openDrawer(emp);
 });
+
+/* 工作台九宫格导航与锚点滚动 */
+document.querySelectorAll('[data-nav-to]').forEach(b => b.addEventListener('click', () => {
+  location.hash = b.dataset.navTo;
+}));
+document.querySelectorAll('[data-scroll]').forEach(b => b.addEventListener('click', () => {
+  const el = document.getElementById(b.dataset.scroll);
+  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}));
 
 /* ================= 启动 ================= */
 render();
